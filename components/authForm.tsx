@@ -5,7 +5,7 @@ import { FC, useState } from "react";
 import { useSWRConfig } from "swr";
 import { auth } from "../lib/mutations";
 
-const AuthForm: FC<{ mode: "signin" | "signup" }> = ({ mode }) => {
+const AuthForm: FC<{ mode }> = ({ mode }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
