@@ -8,7 +8,9 @@ const PlayBar = () => {
           <Text fontSize="large"> Song Name </Text>
           <Text fontSize="sm"> Artist Name</Text>
         </Box>
-        <Box width="40%">Plyer</Box>
+        <Box width="40%">
+          <Player />
+        </Box>
       </Flex>
     </Box>
   );
