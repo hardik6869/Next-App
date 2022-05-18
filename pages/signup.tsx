@@ -5,5 +5,4 @@ const SignUp = () => {
 };
 
 SignUp.authPage = true;
-
 export default SignUp;

@@ -1,6 +1,3 @@
-import { url } from "inspector";
-import { json } from "stream/consumers";
-
 const Fetcher = (url: string, data = undefined) => {
   return fetch(`${window.location.origin}/api/${url}`, {
     method: data ? "POST" : "GET",

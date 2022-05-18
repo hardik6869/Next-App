@@ -53,7 +53,6 @@ const musicMenu = [
 
 const Sidebar = () => {
   const { playlists } = usePlaylist();
-  const allplaylists = playlists.playlists;
 
   return (
     <Box
@@ -110,7 +109,7 @@ const Sidebar = () => {
         <Divider bg="gray-800" />
         <Box height="66%" overflowY="auto" paddingY="20px">
           <List spacing={2}>
-            {allplaylists?.map((playlist) => {
+            {playlists?.map((playlist) => {
               return (
                 <ListItem paddingX="20px" key={playlist.id}>
                   <LinkBox>

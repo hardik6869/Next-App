@@ -1,5 +1,4 @@
 import Fetcher from "./fetcher";
-import featcher from "./fetcher";
 
 export const auth = (
   mode: "signin | signup",

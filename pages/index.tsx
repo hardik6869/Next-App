@@ -6,8 +6,6 @@ import { useMe } from "../lib/hooks";
 
 const Home = ({ artists }) => {
   const { user } = useMe();
-  console.log(user);
-
   return (
     <GradientLayout
       color="green"
@@ -44,32 +42,6 @@ const Home = ({ artists }) => {
     </GradientLayout>
   );
 };
-
-// export const getServerSideProps = async () => {
-//   const artists = await prisma.artist.findMany({});
-//   return {
-//     props: {
-//       artists: JSON.parse(JSON.stringify(artists)),
-//     },
-//   };
-// };
-
-// export const getServerSideProps = async () => {
-//   const artists = await prisma.artist.findMany({});
-//   console.log(artists);
-
-//   // for (const element of newsLetters) {
-//   //   element.createdAt = element.createdAt.toString()
-//   // }
-
-//   artists.map((data) => {
-//     data.createdAt = data.createdAt.toString();
-//   });
-
-//   return {
-//     props: { artists },
-//   };
-// };
 
 export const getServerSideProps = async () => {
   const artists = await prisma.artist.findMany({});
