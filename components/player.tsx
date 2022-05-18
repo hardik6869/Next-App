@@ -24,7 +24,7 @@ import {
 import { useStoreActions } from "easy-peasy";
 
 const Player = ({ songs, activeSongs }) => {
-  const [playing, setPlaying] = useState(true);
+  const [playing, setPlaying] = useState(false);
   const [index, setIndex] = useState(0);
   const [seek, setSeek] = useState(0.0);
   const [repeat, setRepeat] = useState(false);
@@ -45,7 +45,7 @@ const Player = ({ songs, activeSongs }) => {
   return (
     <Box>
       <Box>
-        {/* <ReactHowler playing={playing} src={activeSongs?.url} /> */}
+        <ReactHowler playing={playing} src={activeSongs?.url} />
       </Box>
       <Center>
         <ButtonGroup>
