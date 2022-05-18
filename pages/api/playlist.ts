@@ -11,5 +11,5 @@ export default validateRoute(async (req, res, user) => {
       name: "asc",
     },
   });
-  res.json(playlists);
+  res.json({ playlists });
 });

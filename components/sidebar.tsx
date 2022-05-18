@@ -52,7 +52,9 @@ const musicMenu = [
 // const Playlist = new Array(50).fill(1).map((_, i) => `Playlist ${i + 1}`);
 
 const Sidebar = () => {
-  const { playlistes } = usePlaylist();
+  const { playlists } = usePlaylist();
+  const allplaylists = playlists.playlists;
+
   return (
     <Box
       width="100"
@@ -106,17 +108,25 @@ const Sidebar = () => {
           </List>
         </Box>
         <Divider bg="gray-800" />
-        <Box height="66%" overflow="auto" paddingY="20px">
+        <Box height="66%" overflowY="auto" paddingY="20px">
           <List spacing={2}>
-            {playlistes.map((playlist) => (
-              <ListItem paddingX="20px" key={playlist.id}>
-                <LinkBox>
-                  <NextLink href="/">
-                    <LinkOverlay>{playlist.name}</LinkOverlay>
-                  </NextLink>
-                </LinkBox>
-              </ListItem>
-            ))}
+            {allplaylists?.map((playlist) => {
+              return (
+                <ListItem paddingX="20px" key={playlist.id}>
+                  <LinkBox>
+                    <NextLink
+                      href={{
+                        pathname: "/playlist/[id]",
+                        query: { id: playlist.id },
+                      }}
+                      passHref
+                    >
+                      <LinkOverlay>{playlist.name}</LinkOverlay>
+                    </NextLink>
+                  </LinkBox>
+                </ListItem>
+              );
+            })}
           </List>
         </Box>
       </Box>
