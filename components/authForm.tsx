@@ -1,4 +1,4 @@
-import { Box, Flex, Input, Button } from "@chakra-ui/react";
+import { Box, Flex, Text, Input, Button } from "@chakra-ui/react";
 import NextImage from "next/image";
 import { useRouter } from "next/router";
 import { FC, useState } from "react";
@@ -31,20 +31,26 @@ const AuthForm: FC<{ mode }> = ({ mode }) => {
       </Flex>
       <Flex justify="center" align="center" height="calc(100vh - 100px)">
         <Box padding="50px" bg="gray.900" borderRadius="6px">
+          <Text color="white" fontSize="30px" align="center" paddingY="5px">
+            {mode}
+          </Text>
           <form onSubmit={handleSubmit}>
             <Input
               placeholder="email"
               type="email"
+              marginY="10px"
               onChange={(e) => setEmail(e.target.value)}
             />
             <Input
               placeholder="password"
               type="password"
+              marginY="10px"
               onChange={(e) => setPassword(e.target.value)}
             />
             <Button
               type="submit"
               bg="green.500"
+              marginY="10px"
               isLoading={isLoading}
               sx={{ "&:hover": { bg: "green.300" } }}
             >

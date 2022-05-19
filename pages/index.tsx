@@ -27,7 +27,7 @@ const Home = ({ artists }) => {
             <Box paddingX="10px" width="20%" key={artist.id}>
               <Box bg="gray.900" borderRadius="4px" padding="15px">
                 <Image
-                  src="https://placekitten.com/300/300"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpZwfFNL2-rAhltDWMhHdhNEWRO219AJ3rvA&usqp=CAU"
                   borderRadius="100px"
                 />
                 <Box marginTop="20px">
