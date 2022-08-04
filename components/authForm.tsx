@@ -1,17 +1,17 @@
 import { Box, Flex, Text, Input, Button } from "@chakra-ui/react";
 import NextImage from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, useState } from "react";
-import { useSWRConfig } from "swr";
 import { auth } from "../lib/mutations";
 
-const AuthForm: FC<{ mode }> = ({ mode }) => {
+const AuthForm: FC<{ mode: any }> = ({ mode }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     setIsLoading(true);
 
@@ -31,8 +31,8 @@ const AuthForm: FC<{ mode }> = ({ mode }) => {
       </Flex>
       <Flex justify="center" align="center" height="calc(100vh - 100px)">
         <Box padding="50px" bg="gray.900" borderRadius="6px">
-          <Text color="white" fontSize="30px" align="center" paddingY="5px">
-            {mode}
+          <Text color="white" fontSize="35px" align="center" paddingY="10px">
+            {mode == "signin" ? "SignUp" : "SignIn"}
           </Text>
           <form onSubmit={handleSubmit}>
             <Input
@@ -54,8 +54,20 @@ const AuthForm: FC<{ mode }> = ({ mode }) => {
               isLoading={isLoading}
               sx={{ "&:hover": { bg: "green.300" } }}
             >
-              {mode}
+              {mode == "signin" ? "Signup" : "Signin"}
             </Button>
+            <Flex justify="center" align="center">
+              <Text color="gray" fontSize="16px">
+                {mode == "signup"
+                  ? "Already have an account?"
+                  : "Not yet member?"}
+              </Text>
+              <Text color="lightblue" fontSize="16px">
+                <a href={`/${mode == "signup" ? "signin" : "signup"}`}>
+                  {mode == "signup" ? "Signin" : "Signup"}
+                </a>
+              </Text>
+            </Flex>
           </form>
         </Box>
       </Flex>
