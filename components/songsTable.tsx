@@ -13,6 +13,7 @@ import { BsFillPlayFill } from "react-icons/bs";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { formatDate, formatTime } from "../lib/formatters";
 import { useStoreActions } from "easy-peasy";
+import { Key, ReactChild, ReactFragment, ReactPortal } from "react";
 
 const SongTable = ({ songs }) => {
   const playSongs = useStoreActions((store: any) => store.changeActiveSongs);
@@ -47,24 +48,34 @@ const SongTable = ({ songs }) => {
             </Tr>
           </Thead>
           <Tbody>
-            {songs.map((song, i) => {
-              return (
-                <Tr
-                  sx={{
-                    transition: "all .3s",
-                    "&:hover": { bg: "rgba(255,255,255,0.1)" },
-                  }}
-                  key={song.id}
-                  cursor="pointer"
-                  onClick={() => handlePlay(song)}
-                >
-                  <Td>{i + 1}</Td>
-                  <Td>{song.name}</Td>
-                  <Td>{formatDate(song.createdAt)}</Td>
-                  <Td>{formatTime(song.duration)}</Td>
-                </Tr>
-              );
-            })}
+            {songs.map(
+              (
+                song: {
+                  id: Key;
+                  name: boolean | ReactChild | ReactFragment | ReactPortal;
+                  createdAt: Date;
+                  duration: number;
+                },
+                i: number
+              ) => {
+                return (
+                  <Tr
+                    sx={{
+                      transition: "all .3s",
+                      "&:hover": { bg: "rgba(255,255,255,0.1)" },
+                    }}
+                    key={song.id}
+                    cursor="pointer"
+                    onClick={() => handlePlay(song)}
+                  >
+                    <Td>{i + 1}</Td>
+                    <Td>{song.name}</Td>
+                    <Td>{formatDate(song.createdAt)}</Td>
+                    <Td>{formatTime(song.duration)}</Td>
+                  </Tr>
+                );
+              }
+            )}
           </Tbody>
         </Table>
       </Box>

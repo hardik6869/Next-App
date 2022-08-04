@@ -32,7 +32,7 @@ const AuthForm: FC<{ mode: any }> = ({ mode }) => {
       <Flex justify="center" align="center" height="calc(100vh - 100px)">
         <Box padding="50px" bg="gray.900" borderRadius="6px">
           <Text color="white" fontSize="35px" align="center" paddingY="10px">
-            {mode == "signin" ? "SignUp" : "SignIn"}
+            {mode == "signin" ? "SignIn" : "SignUp"}
           </Text>
           <form onSubmit={handleSubmit}>
             <Input
@@ -54,7 +54,7 @@ const AuthForm: FC<{ mode: any }> = ({ mode }) => {
               isLoading={isLoading}
               sx={{ "&:hover": { bg: "green.300" } }}
             >
-              {mode == "signin" ? "Signup" : "Signin"}
+              {mode == "signin" ? "SignIn" : "SignUp"}
             </Button>
             <Flex justify="center" align="center">
               <Text color="gray" fontSize="16px">
